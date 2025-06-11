@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import CountryCard from '../../components/CountryCard/CountryCard.jsx';
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -24,13 +25,13 @@ const Home = () => {
   return (
     <div className="countries">
       {countries.map((country) => (
-        <div key={country.cca3}>
-          <img src={country.flags.svg} alt={`Flaga ${country.name.common}`} />
-          <h2>{country.name.common}</h2>
-          <p>Kontynent: {country.region}</p>
-          <p>Stolica: {country.capital}</p>
-          <Link to={`/country/${country.name.common}`}>Zobacz szczegóły →</Link>
-        </div>
+        <CountryCard
+          key={country.cca3}
+          flag={country.flags.svg}
+          name={country.name.common}
+          region={country.region}
+          capital={country.capital?.[0] || 'Brak'}
+        />
       ))}
     </div>
   );
