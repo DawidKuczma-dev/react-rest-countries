@@ -3,7 +3,9 @@ html {
 }
 
 body {
-  font-family: 'Arial' sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 1.6rem;
   padding: 0;
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+  color: white;
 }

@@ -10,15 +10,18 @@ const CountryCard = ({ flag, name, region, capital }) => {
   return (
     <div className="country-card" onClick={handleClick}>
       <img src={flag} alt={`Flaga ${name}`} className="country-flag" />
+      <div></div>
       <h3 className="country-name">{name}</h3>
-      <p>
-        <strong>Kontynent: </strong>
-        {region}
-      </p>
-      <p>
-        <strong>Stolica: </strong>
-        {capital}
-      </p>
+      <div className="country-info">
+        <p>
+          <strong>Kontynent: </strong>
+          {region}
+        </p>
+        <p>
+          <strong>Stolica: </strong>
+          {capital}
+        </p>
+      </div>
     </div>
   );
 };
