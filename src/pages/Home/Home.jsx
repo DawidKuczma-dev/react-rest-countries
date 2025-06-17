@@ -53,7 +53,10 @@ const Home = () => {
         searchBy={searchBy}
         onToggleSearchBy={handleToggleSearchBy}
       />
-      <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
+      <div className="top-bar">
+        <h1>Liczba wyników: {filteredCountries.length}</h1>
+        <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
+      </div>
       <div className="countries">
         {filteredCountries.map((country) => (
           <CountryCard
