@@ -3,9 +3,15 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: 'Noto Sans', sans-serif;
   font-size: 1.6rem;
   padding: 0;
   background: linear-gradient(180deg, #040918 0%, #091540 100%);
   color: white;
+}
+
+.wrapper {
+  width: 85vw;
+  margin: 50px auto;
 }
