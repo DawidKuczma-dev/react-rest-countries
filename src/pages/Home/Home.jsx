@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css';
 import CountryCard from '../../components/CountryCard/CountryCard.jsx';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
+import Filters from '../../components/Filters/Filters.jsx';
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchBy, setSearchBy] = useState('name');
+  const [selectedRegion, setSelectedRegion] = useState('All');
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=cca3,flags,name,region,capital')
@@ -31,10 +32,17 @@ const Home = () => {
     setSearchBy((prev) => (prev === 'name' ? 'capital' : 'name'));
   };
 
+  const handleRegionChange = (region) => setSelectedRegion(region);
+
   const filteredCountries = countries.filter((country) => {
-    if (searchBy === 'name')
-      return country.name.common.toLowerCase().includes(searchTerm.toLowerCase());
-    else return country.capital?.[0]?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchRegion = selectedRegion === 'All' || country.region === selectedRegion;
+
+    const matchSearch =
+      searchBy === 'name'
+        ? country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+        : country.capital?.[0]?.toLowerCase().includes(searchTerm.toLowerCase());
+
+    return matchRegion && matchSearch;
   });
 
   return (
@@ -45,6 +53,7 @@ const Home = () => {
         searchBy={searchBy}
         onToggleSearchBy={handleToggleSearchBy}
       />
+      <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
       <div className="countries">
         {filteredCountries.map((country) => (
           <CountryCard
