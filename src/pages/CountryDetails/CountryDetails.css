@@ -1,0 +1,134 @@
+.country-details {
+  position: relative;
+  width: 85vw;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.country-details button {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  padding: 1rem 2rem 1rem 1.5rem;
+  border-radius: 15px;
+  font-size: 2.5rem;
+  color: #fff;
+  background-color: #1f2535;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.country-details button i {
+  padding-right: 1.5rem;
+}
+
+.country-details button:hover {
+  background-color: #f85953;
+  color: #000;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 5rem;
+}
+.header h2 {
+  font-size: 3.5rem;
+}
+
+.header .images {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 0 2rem;
+}
+
+.flag,
+.arms {
+  display: block;
+  width: 15%;
+  height: auto;
+  align-content: center;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(10, auto);
+  gap: 1.5rem;
+}
+
+.info section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1f2535;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  border-radius: 20px;
+  line-height: 1.5;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+}
+
+.info section h3 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.info section strong {
+  font-size: 2rem;
+  padding-right: 0.5rem;
+}
+
+.geography {
+  grid-column: 1;
+  grid-row: 1 / span 7;
+}
+.currencies {
+  grid-column: 1;
+  grid-row: 8 / span 2;
+}
+.population {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+}
+.additional {
+  grid-column: 2;
+  grid-row: 5 / span 5;
+}
+.languages {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+.traffic {
+  grid-column: 3;
+  grid-row: 3 / span 3;
+}
+.contact {
+  grid-column: 3;
+  grid-row: 6 / span 4;
+}
+section.maps {
+  grid-column: 1 / span 3;
+  grid-row: 10;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+section.maps h3 {
+  margin-bottom: 0;
+}
+
+.maps a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.maps a:hover {
+  background-color: #f85953;
+  color: #000;
+}

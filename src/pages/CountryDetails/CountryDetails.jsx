@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import './CountryDetails.css';
 
 const CountryDetails = () => {
   const { cca3 } = useParams();
@@ -46,166 +47,180 @@ const CountryDetails = () => {
 
   return (
     <div className="country-details">
-      <button onClick={() => navigate(-1)}>Wróć</button>
+      <button onClick={() => navigate(-1)}>
+        <i className="fa-solid fa-arrow-left"></i>Wróć
+      </button>
 
       {/* Nazwa i flaga */}
-      <section>
-        <img src={country.flags.svg} alt={`Flaga ${country.name.common}`} />
-        {country.coatOfArms.svg && (
-          <img src={country.coatOfArms.svg} alt={`Herb ${country.name.common}`} />
-        )}
-
+      <section className="header">
         <h1>{country.name.common}</h1>
         {country.name.common !== country.name.official && <h2>{country.name.official}</h2>}
-      </section>
-
-      {/* Lokalizacja i geografia */}
-      <section>
-        <h3>Geografia</h3>
-        <div>
-          <strong>Kontynent: </strong>
-          {country.region}
-          {country.subregion && ` (${country.subregion})`}
-        </div>
-        {country.capital && (
-          <div>
-            <strong>Stolica: </strong>
-            {country.capital.join(', ')}
+        <div className="images">
+          <div className="flag">
+            <img src={country.flags.svg} alt={`Flaga ${country.name.common}`} />
           </div>
-        )}
-        <div>
-          <strong>Dostęp do otwartego morza: </strong>
-          {country.landlocked ? 'Nie' : 'Tak'}
-        </div>
-        <div>
-          <strong>Powierzchnia: </strong>
-          {formatter.format(country.area)} km²
-        </div>
-        {country.borders && (
-          <div>
-            <strong>Graniczy z: </strong>
-            <ul>
-              {borders.map((name) => (
-                <li key={name}>{name}</li>
-              ))}
-            </ul>
+          <div className="arms">
+            {country.coatOfArms.svg && (
+              <img src={country.coatOfArms.svg} alt={`Herb ${country.name.common}`} />
+            )}
           </div>
-        )}
-        <div>
-          <strong>{country.timezones.length === 1 ? 'Strafa czasowa' : 'Strefy czasowe'}: </strong>
-          {country.timezones?.join(', ')}
         </div>
       </section>
-      {/* Ludność i społeczeństwo*/}
-      <section>
-        <h3>Ludność</h3>
-        <div>
-          <strong>Liczba ludności: </strong>
-          {formatPopulation(country.population)}
-        </div>
-        <div>
-          <strong>Określenie narodowościowe: </strong>
-          {country.demonyms?.eng?.m}
-        </div>
-        {country.gini && (
+      <div className="info">
+        {/* Lokalizacja i geografia */}
+        <section className="geography">
+          <h3>Geografia</h3>
           <div>
-            <strong>Wskaźnik nierówności GINI: </strong>
-            {`${Object.values(country.gini)[0]} (${Object.keys(country.gini)[0]})`}
+            <strong>Kontynent: </strong>
+            {country.region}
+            {country.subregion && ` (${country.subregion})`}
           </div>
-        )}
-      </section>
-      {/* Języki */}
-      <section>
-        {country.languages && (
-          <>
-            <h3>{Object.values(country.languages).length === 1 ? 'Język' : 'Języki'}</h3>
-            <div>{Object.values(country.languages).join(', ')}</div>
-          </>
-        )}
-      </section>
-      {/* Waluty */}
-      <section>
-        {country.currencies && (
-          <>
-            <h3>{Object.entries(country.currencies).length === 1 ? 'Waluta' : 'Waluty'}</h3>
+          {country.capital && (
             <div>
-              {Object.entries(country.currencies)
-                .map(([code, currency]) => `${code} - ${currency.name} (${currency.symbol})`)
-                .join(', ')}
+              <strong>Stolica: </strong>
+              {country.capital.join(', ')}
             </div>
-          </>
-        )}
-      </section>
-      {/* Ruch drogowy */}
-      <section>
-        <h3>Ruch drogowy:</h3>
-        <div>
-          <strong>Kod rejestracyjny:</strong> {country.car.signs?.join(', ') || 'Brak danych'}{' '}
-        </div>
-        <div>
-          <strong>Ruch: </strong>
-          {country.car.side === 'right' ? 'prawostronny' : 'lewostronny'}
-        </div>
-      </section>
-      {/* Kontakt */}
-      <section>
-        <h3>Informacje kontaktowe</h3>
-        {country.idd.root && (
+          )}
           <div>
-            <strong>Kod telefoniczny: </strong>
-            {country.idd.root}
-            {country.idd.suffixes[0]}
-            {country.idd.suffixes.length > 1 && ` (wszystkich jest ${country.idd.suffixes.length})`}
+            <strong>Dostęp do otwartego morza: </strong>
+            {country.landlocked ? 'Nie' : 'Tak'}
           </div>
-        )}
-        <div>
-          <strong>Domena: </strong>
-          {country.tld?.join(', ')}
-        </div>
-        {country.postalCode.format && (
           <div>
-            <strong>Format kodu pocztowego: </strong>
-            {country.postalCode.format}
+            <strong>Powierzchnia: </strong>
+            {formatter.format(country.area)} km²
           </div>
-        )}
-      </section>
-      {/* Mapy */}
-      <section>
-        <h3>Mapy - zobacz na: </h3>
+          {country.borders && (
+            <div>
+              <strong>Graniczy z: </strong>
+              {borders.join(', ')}
+            </div>
+          )}
+          <div>
+            <strong>
+              {country.timezones.length === 1 ? 'Strafa czasowa' : 'Strefy czasowe'}:{' '}
+            </strong>
+            {country.timezones?.join(', ')}
+          </div>
+        </section>
+        {/* Ludność i społeczeństwo*/}
+        <section className="population">
+          <h3>Ludność</h3>
+          <div>
+            <strong>Liczba ludności: </strong>
+            {formatPopulation(country.population)}
+          </div>
+          <div>
+            <strong>Określenie narodowościowe: </strong>
+            {country.demonyms?.eng?.m}
+          </div>
+          {country.gini && (
+            <div>
+              <strong>Wskaźnik nierówności GINI: </strong>
+              {`${Object.values(country.gini)[0]} (${Object.keys(country.gini)[0]})`}
+            </div>
+          )}
+        </section>
+        {/* Języki */}
+        <section className="languages">
+          {country.languages ? (
+            <>
+              <h3>{Object.values(country.languages).length === 1 ? 'Język' : 'Języki'}</h3>
+              <div>{Object.values(country.languages).join(', ')}</div>
+            </>
+          ) : (
+            <>
+              <h3>Język</h3>
+              <div>Brak danych</div>
+            </>
+          )}
+        </section>
+        {/* Waluty */}
+        <section className="currencies">
+          {country.currencies ? (
+            <>
+              <h3>{Object.entries(country.currencies).length === 1 ? 'Waluta' : 'Waluty'}</h3>
+              <div>
+                {Object.entries(country.currencies)
+                  .map(([code, currency]) => `${code} - ${currency.name} (${currency.symbol})`)
+                  .join(', ')}
+              </div>
+            </>
+          ) : (
+            <>
+              <h3>Waluta</h3>
+              <div>Brak danych</div>
+            </>
+          )}
+        </section>
+        {/* Ruch drogowy */}
+        <section className="traffic">
+          <h3>Ruch drogowy</h3>
+          <div>
+            <strong>Kod rejestracyjny:</strong> {country.car.signs?.join(', ') || 'Brak danych'}{' '}
+          </div>
+          <div>
+            <strong>Ruch: </strong>
+            {country.car.side === 'right' ? 'prawostronny' : 'lewostronny'}
+          </div>
+        </section>
+        {/* Kontakt */}
+        <section className="contact">
+          <h3>Informacje kontaktowe</h3>
+          {country.idd.root && (
+            <div>
+              <strong>Kod telefoniczny: </strong>
+              {country.idd.root}
+              {country.idd.suffixes[0]}
+              {country.idd.suffixes.length > 1 &&
+                ` (wszystkich jest ${country.idd.suffixes.length})`}
+            </div>
+          )}
+          <div>
+            <strong>Domena: </strong>
+            {country.tld?.join(', ')}
+          </div>
+          {country.postalCode.format && (
+            <div>
+              <strong>Format kodu pocztowego: </strong>
+              {country.postalCode.format}
+            </div>
+          )}
+        </section>
+        {/* Inne */}
+        <section className="additional">
+          <h3>Dodatkowe Informacje</h3>
+          <div>
+            <strong>Członek ONZ: </strong>
+            {country.unMember ? 'Tak' : 'Nie'}
+          </div>
+          <div>
+            <strong>Niepodległy: </strong>
+            {country.independent ? 'Tak' : 'Nie'}
+          </div>
+          <div>
+            <strong>Status: </strong>
+            {country.status === 'officially-assigned'
+              ? 'Oficjalnie uznany kraj'
+              : 'Terytorium nieoficjalne lub specjalne'}
+          </div>
+          <div>
+            <strong>Dzień rozpoczęcia tygodnia: </strong>
+            {country.startOfWeek}
+          </div>
+        </section>
+        {/* Mapy */}
+        <section className="maps">
+          <h3>Zobacz na: </h3>
 
-        <div>
           <a href={country.maps.googleMaps} target="_blank" rel="noopener noreferrer">
             <strong>Google Maps</strong>
           </a>
-        </div>
-        <div>
+
           <a href={country.maps.openStreetMaps} target="_blank" rel="noopener noreferrer">
             <strong>Open Street Map</strong>
           </a>
-        </div>
-      </section>
-      {/* Inne */}
-      <section>
-        <h3>Dodatkowe Informacje</h3>
-        <div>
-          <strong>Członek ONZ: </strong>
-          {country.unMember ? 'Tak' : 'Nie'}
-        </div>
-        <div>
-          <strong>Niepodległy: </strong>
-          {country.independent ? 'Tak' : 'Nie'}
-        </div>
-        <div>
-          <strong>Status: </strong>
-          {country.status === 'officially-assigned'
-            ? 'Oficjalnie uznany kraj'
-            : 'Terytorium nieoficjalne lub specjalne'}
-        </div>
-        <div>
-          <strong>Dzień rozpoczęcia tygodnia: </strong>
-          {country.startOfWeek}
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
