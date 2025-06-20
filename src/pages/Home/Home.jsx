@@ -61,6 +61,7 @@ const Home = () => {
         {filteredCountries.map((country) => (
           <CountryCard
             key={country.cca3}
+            id={country.cca3}
             flag={country.flags.svg}
             name={country.name.common}
             region={country.region}

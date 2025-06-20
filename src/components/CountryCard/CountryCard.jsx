@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import './CountryCard.css';
 
-const CountryCard = ({ flag, name, region, capital }) => {
+const CountryCard = ({ id, flag, name, region, capital }) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/country/${name}`);
+    navigate(`/country/${id}`);
   };
 
   return (
