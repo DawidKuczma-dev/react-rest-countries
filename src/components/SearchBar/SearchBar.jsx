@@ -4,6 +4,7 @@ const SearchBar = ({ searchTerm, onSearchChange, searchBy, onToggleSearchBy }) =
   return (
     <div className="search-bar">
       <input
+        id="useless-but-needed-id"
         type="text"
         value={searchTerm}
         onChange={onSearchChange}

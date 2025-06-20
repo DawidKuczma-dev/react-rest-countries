@@ -13,5 +13,6 @@ body {
 
 .wrapper {
   width: 85vw;
-  margin: 50px auto;
+  margin: 0 auto;
+  padding-top: 5rem;
 }
