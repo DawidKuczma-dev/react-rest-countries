@@ -1,12 +1,13 @@
 .countries {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
 }
 
 .top-bar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
