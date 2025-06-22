@@ -11,3 +11,9 @@
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
+
+@media (min-width: 1280px) {
+  .top-bar {
+    margin-bottom: 2rem;
+  }
+}

@@ -16,3 +16,14 @@ body {
   margin: 0 auto;
   padding-top: 3rem;
 }
+
+@media (min-width: 768px) {
+  html {
+    font-size: 81.25%;
+  }
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 93.75%;
+  }
+}

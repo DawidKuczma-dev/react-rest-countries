@@ -12,15 +12,20 @@
   padding: 0.5rem 1rem;
   border-radius: 7px;
   font-size: 1.3rem;
-  /* transition: background-color 0.2s; */
 }
-
-/* .filters button:hover {
-  background-color: #f85953;
-} */
 
 .filters button.active {
   background-color: #f85953;
   color: #000;
   cursor: auto;
+}
+
+@media (min-width: 1280px) {
+  .filters button {
+    transition: background-color 0.2s;
+  }
+
+  .filters button:hover {
+    background-color: #f85953;
+  }
 }

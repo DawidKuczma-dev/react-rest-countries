@@ -13,18 +13,11 @@
   font-size: 1.8rem;
   color: #fff;
   background-color: #1f2535;
-  cursor: pointer;
-  /* transition: background-color 0.2s, color 0.2s; */
 }
 
 .country-details button i {
   padding-right: 0.5rem;
 }
-
-/* .country-details button:hover {
-  background-color: #f85953;
-  color: #000;
-} */
 
 .header {
   text-align: center;
@@ -127,10 +120,77 @@ section.maps h3 {
   padding: 0.5rem 1rem;
   border-radius: 10px;
   cursor: pointer;
-  /* transition: background-color 0.2s, color 0.2s; */
 }
 
-/* .maps a:hover {
-  background-color: #f85953;
-  color: #000;
-} */
+@media (min-width: 768px) {
+  .country-details {
+    width: 90vw;
+  }
+  .flag,
+  .arms {
+    width: 25%;
+  }
+  .info section {
+    border-radius: 15px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .country-details {
+    width: 85vw;
+    padding-top: 1rem;
+  }
+  .country-details button {
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .country-details button:hover {
+    background-color: #f85953;
+    color: #000;
+  }
+  .header .images {
+    justify-content: space-evenly;
+    padding: 1rem 0;
+    gap: 0;
+  }
+  .flag,
+  .arms {
+    width: 13%;
+  }
+  .info {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, auto);
+  }
+  .info section {
+    border-radius: 15px;
+  }
+  .additional {
+    grid-column: 2;
+    grid-row: 5 / span 5;
+  }
+  .languages {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+  .traffic {
+    grid-column: 3;
+    grid-row: 3 / span 3;
+  }
+  .contact {
+    grid-column: 3;
+    grid-row: 6 / span 4;
+  }
+  section.maps {
+    grid-column: 1 / span 3;
+    grid-row: 10;
+  }
+  .maps a {
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .maps a:hover {
+    background-color: #f85953;
+    color: #000;
+  }
+}

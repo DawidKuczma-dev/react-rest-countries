@@ -8,13 +8,7 @@
   padding: 1rem;
   width: 100px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  /* transition: transform 0.2s ease; */
 }
-
-/* .country-card:hover {
-  transform: scale(1.05);
-} */
 
 .country-flag {
   width: 100%;
@@ -31,4 +25,34 @@
 
 .country-card p {
   color: #ddd;
+}
+
+@media (min-width: 768px) {
+  .country-card {
+    border-radius: 12px;
+    width: 160px;
+  }
+
+  .country-flag {
+    height: 80px;
+    border-radius: 7px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .country-card {
+    border-radius: 15px;
+    width: 220px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .country-card:hover {
+    transform: scale(1.05);
+  }
+
+  .country-flag {
+    height: 120px;
+    border-radius: 10px;
+  }
 }
