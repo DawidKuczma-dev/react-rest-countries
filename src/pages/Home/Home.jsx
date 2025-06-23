@@ -35,6 +35,7 @@ const Home = () => {
 
   const handleRegionChange = (region) => setSelectedRegion(region);
 
+  // Matching countries
   const filteredCountries = countries.filter((country) => {
     const matchRegion = selectedRegion === 'All' || country.region === selectedRegion;
 
@@ -46,6 +47,7 @@ const Home = () => {
     return matchRegion && matchSearch;
   });
 
+  //Sorting matched countries
   filteredCountries.sort((a, b) => {
     switch (sortOption) {
       case 'name-asc':
@@ -83,6 +85,7 @@ const Home = () => {
           <i className="fa-solid fa-caret-down"></i>
         </div>
         <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
+        <button className="random-button">🎲 Losowe państwo 🎲</button>
       </div>
       <div className="countries">
         {filteredCountries.map((country) => (

@@ -1,17 +1,20 @@
 .filters {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
 }
 
 .filters button {
-  cursor: pointer;
   background-color: #2f354b;
   padding: 0.5rem 1rem;
   border-radius: 7px;
   font-size: 1.3rem;
+}
+
+.filters button:last-child {
+  margin-right: 1rem;
 }
 
 .filters button.active {
@@ -22,6 +25,7 @@
 
 @media (min-width: 1280px) {
   .filters button {
+    cursor: pointer;
     transition: background-color 0.2s;
   }
 
