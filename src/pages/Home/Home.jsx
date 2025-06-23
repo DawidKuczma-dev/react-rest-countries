@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import CountryCard from '../../components/CountryCard/CountryCard.jsx';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
@@ -11,6 +12,7 @@ const Home = () => {
   const [searchBy, setSearchBy] = useState('name');
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [sortOption, setSortOption] = useState('name-asc');
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=cca3,flags,name,region,capital')
@@ -63,6 +65,12 @@ const Home = () => {
     }
   });
 
+  const handleRandomCountry = () => {
+    const randomIndex = Math.floor(Math.random() * countries.length);
+    const randomCountry = countries[randomIndex];
+    navigate(`/country/${randomCountry.cca3}`);
+  };
+
   return (
     <div className="wrapper">
       <SearchBar
@@ -85,7 +93,9 @@ const Home = () => {
           <i className="fa-solid fa-caret-down"></i>
         </div>
         <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
-        <button className="random-button">🎲 Losowe państwo 🎲</button>
+        <button className="random-button" onClick={handleRandomCountry}>
+          🎲 Losowe państwo 🎲
+        </button>
       </div>
       <div className="countries">
         {filteredCountries.map((country) => (
