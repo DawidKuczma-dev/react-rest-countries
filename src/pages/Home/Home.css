@@ -10,9 +10,57 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 1.5rem;
+  align-items: center;
 }
 
+.top-bar h1 {
+  width: 50%;
+}
+
+.select-container {
+  position: relative;
+  width: 45%;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.select-container select {
+  width: 100%;
+  padding: 1rem;
+  background-color: #1f2535;
+  border-radius: 7px;
+  appearance: none;
+}
+.select-container i {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.select-container select:focus {
+  box-shadow: 0 0 7px #f85953;
+}
+
+@media (min-width: 768px) {
+  .select-container {
+    width: 30%;
+  }
+}
 @media (min-width: 1280px) {
+  .select-container {
+    width: 15%;
+  }
+  .select-container select {
+    cursor: pointer;
+  }
+  .select-container select:focus {
+    box-shadow: none;
+  }
+  .select-container select:hover {
+    box-shadow: 0 0 7px #f85953;
+  }
   .top-bar {
     margin-bottom: 2rem;
   }

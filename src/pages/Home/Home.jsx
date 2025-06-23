@@ -71,15 +71,17 @@ const Home = () => {
       />
       <div className="top-bar">
         <h1>Liczba wyników: {filteredCountries.length}</h1>
-
-        <select
-          id="useless-but-needed-id1"
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-        >
-          <option value={'name-asc'}>Alfabetycznie A-Z</option>
-          <option value={'name-desc'}>Alfabetycznie Z-A</option>
-        </select>
+        <div className="select-container">
+          <select
+            id="useless-but-needed-id1"
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
+          >
+            <option value={'name-asc'}>Alfabetycznie A-Z</option>
+            <option value={'name-desc'}>Alfabetycznie Z-A</option>
+          </select>
+          <i className="fa-solid fa-caret-down"></i>
+        </div>
         <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
       </div>
       <div className="countries">
