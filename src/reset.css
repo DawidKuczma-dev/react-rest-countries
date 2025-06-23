@@ -19,7 +19,8 @@ input {
   background: transparent;
   outline: none;
 }
-button {
+button,
+select {
   padding: 0;
   background: none;
   border: none;
