@@ -73,9 +73,6 @@
   }
 }
 @media (min-width: 1280px) {
-  .select-container {
-    width: 15%;
-  }
   .select-container select {
     transition: box-shadow 0.2s ease;
     cursor: pointer;
@@ -96,5 +93,10 @@
   .random-button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 7px #f85953;
+  }
+}
+@media (min-width: 1550px) {
+  .select-container {
+    width: 15%;
   }
 }
