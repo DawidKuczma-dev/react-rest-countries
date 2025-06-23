@@ -141,8 +141,8 @@ section.maps h3 {
     padding-top: 1rem;
   }
   .country-details button {
-    top: 1rem;
-    left: 1rem;
+    top: 1.5rem;
+    left: 7.5vw;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
   }
