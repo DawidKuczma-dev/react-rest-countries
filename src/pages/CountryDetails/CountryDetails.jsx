@@ -8,6 +8,7 @@ const CountryDetails = () => {
   const [country, setCountry] = useState(null);
   const [allCountries, setAllCountries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingArms, setLoadingArms] = useState(true);
 
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/alpha/${cca3}`)
@@ -61,7 +62,15 @@ const CountryDetails = () => {
           </div>
           <div className="arms">
             {country.coatOfArms.svg && (
-              <img src={country.coatOfArms.svg} alt={`Herb ${country.name.common}`} />
+              <>
+                {loadingArms && <p>Ładowanie herbu...</p>}
+                <img
+                  src={country.coatOfArms.svg}
+                  alt={`Herb ${country.name.common}`}
+                  onLoad={() => setLoadingArms(false)}
+                  style={loading ? { display: 'none' } : {}}
+                />
+              </>
             )}
           </div>
         </div>
