@@ -60,19 +60,18 @@ const CountryDetails = () => {
           <div className="flag">
             <img src={country.flags.svg} alt={`Flaga ${country.name.common}`} />
           </div>
-          <div className="arms">
-            {country.coatOfArms.svg && (
-              <>
-                {loadingArms && <p>Ładowanie herbu...</p>}
-                <img
-                  src={country.coatOfArms.svg}
-                  alt={`Herb ${country.name.common}`}
-                  onLoad={() => setLoadingArms(false)}
-                  style={loading ? { display: 'none' } : {}}
-                />
-              </>
-            )}
-          </div>
+
+          {country.coatOfArms.svg && (
+            <div className="arms">
+              {loadingArms && <p>Ładowanie herbu...</p>}
+              <img
+                src={country.coatOfArms.svg}
+                alt={`Herb ${country.name.common}`}
+                onLoad={() => setLoadingArms(false)}
+                style={loading ? { display: 'none' } : {}}
+              />
+            </div>
+          )}
         </div>
       </section>
       <div className="info">
