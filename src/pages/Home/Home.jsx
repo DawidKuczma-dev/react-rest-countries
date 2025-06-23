@@ -10,6 +10,7 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchBy, setSearchBy] = useState('name');
   const [selectedRegion, setSelectedRegion] = useState('All');
+  const [sortOption, setSortOption] = useState('name-asc');
 
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all?fields=cca3,flags,name,region,capital')
@@ -45,6 +46,21 @@ const Home = () => {
     return matchRegion && matchSearch;
   });
 
+  filteredCountries.sort((a, b) => {
+    switch (sortOption) {
+      case 'name-asc':
+        return searchBy === 'name'
+          ? a.name.common.localeCompare(b.name.common)
+          : a.capital[0].localeCompare(b.capital[0]);
+      case 'name-desc':
+        return searchBy === 'name'
+          ? b.name.common.localeCompare(a.name.common)
+          : b.capital[0].localeCompare(a.capital?.[0]);
+      default:
+        return 0;
+    }
+  });
+
   return (
     <div className="wrapper">
       <SearchBar
@@ -55,6 +71,15 @@ const Home = () => {
       />
       <div className="top-bar">
         <h1>Liczba wyników: {filteredCountries.length}</h1>
+
+        <select
+          id="useless-but-needed-id1"
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+        >
+          <option value={'name-asc'}>Alfabetycznie A-Z</option>
+          <option value={'name-desc'}>Alfabetycznie Z-A</option>
+        </select>
         <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
       </div>
       <div className="countries">
