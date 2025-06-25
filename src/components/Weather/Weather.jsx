@@ -32,22 +32,6 @@ const Weather = ({ capital, lat, lon, apiKey }) => {
         <div className="temperature__value">{weather.main.temp.toFixed(1)}°C</div>
       </div>
       <WeatherDetails weather={weather} />
-      <div>
-        <strong>Ciśnienie: </strong>
-        {weather.main.pressure}hPa
-      </div>
-      <div>
-        <strong>Wilgotność: </strong>
-        {weather.main.humidity}%
-      </div>
-      <div>
-        <strong>Opis: </strong>
-        {weather.weather[0].description}
-      </div>
-      <div>
-        <strong>Widoczność: </strong>
-        {weather.visibility / 1000} km
-      </div>
     </>
   );
 };
