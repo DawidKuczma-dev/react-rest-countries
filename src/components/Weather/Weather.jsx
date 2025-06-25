@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Wind from '../Wind/Wind';
+import WeatherDetails from './WeatherDetails.jsx';
 
 const Weather = ({ capital, lat, lon, apiKey }) => {
   const [weather, setWeather] = useState([]);
@@ -24,11 +24,14 @@ const Weather = ({ capital, lat, lon, apiKey }) => {
   return (
     <>
       <h3>Pogoda w {capital}</h3>
-      <div>
-        <strong>Temperatura: </strong>
-        {weather.main.temp.toFixed(1)} °C
+      <div className="temperature">
+        <img
+          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+          alt={weather.weather[0].description}
+        />
+        <div className="temperature__value">{weather.main.temp.toFixed(1)}°C</div>
       </div>
-      <Wind speed={weather.wind.speed} deg={weather.wind.deg} />
+      <WeatherDetails weather={weather} />
       <div>
         <strong>Ciśnienie: </strong>
         {weather.main.pressure}hPa
