@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Wind from '../Wind/Wind';
 
 const Weather = ({ capital, lat, lon, apiKey }) => {
   const [weather, setWeather] = useState([]);
@@ -18,7 +19,6 @@ const Weather = ({ capital, lat, lon, apiKey }) => {
         setLoading(false);
       });
   }, [lat, lon, apiKey]);
-  console.log(apiKey);
 
   if (loading) return <div>Ładowanie danych pogodowych...</div>;
   return (
@@ -28,10 +28,7 @@ const Weather = ({ capital, lat, lon, apiKey }) => {
         <strong>Temperatura: </strong>
         {weather.main.temp.toFixed(1)} °C
       </div>
-      <div>
-        <strong>Wiatr: </strong>
-        {weather.wind.speed} m/s -{weather.wind.deg}
-      </div>
+      <Wind speed={weather.wind.speed} deg={weather.wind.deg} />
       <div>
         <strong>Ciśnienie: </strong>
         {weather.main.pressure}hPa
