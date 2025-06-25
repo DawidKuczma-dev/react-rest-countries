@@ -24,12 +24,19 @@
   padding: 0.5rem 0.5rem;
   border-radius: 7px;
   background-color: #2f354b;
+  transition: background-color 0.2s;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
   .search-bar {
     height: 45px;
     border-radius: 12.5px;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .search-bar button:hover {
+    background-color: #f85953;
   }
 }
 @media (min-width: 1280px) {
@@ -41,11 +48,5 @@
   .search-bar button {
     right: 1rem;
     padding: 0.3rem 0.7rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-
-  .search-bar button:hover {
-    background-color: #f85953;
   }
 }

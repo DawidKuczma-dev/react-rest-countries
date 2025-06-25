@@ -31,6 +31,7 @@
   background-color: #1f2535;
   border-radius: 7px;
   appearance: none;
+  cursor: pointer;
 }
 .select-container i {
   position: absolute;
@@ -53,6 +54,7 @@
   padding: 0.5rem;
   border-radius: 7px;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 @media (min-width: 532px) {
@@ -72,27 +74,27 @@
     position: absolute;
   }
 }
-@media (min-width: 1280px) {
-  .select-container select {
-    transition: box-shadow 0.2s ease;
-    cursor: pointer;
-  }
+@media (hover: hover) and (pointer: fine) {
   .select-container select:focus {
     box-shadow: none;
   }
   .select-container select:hover {
     box-shadow: 0 0 7px #f85953;
   }
+  .random-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 7px #f85953;
+  }
+}
+@media (min-width: 1280px) {
+  .select-container select {
+    transition: box-shadow 0.2s ease;
+  }
   .top-bar {
     margin-bottom: 2rem;
   }
   .random-button {
-    cursor: pointer;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
-  }
-  .random-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 7px #f85953;
   }
 }
 @media (min-width: 1550px) {

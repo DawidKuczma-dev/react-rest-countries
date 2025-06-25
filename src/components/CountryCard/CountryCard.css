@@ -8,6 +8,8 @@
   padding: 1rem;
   width: 100px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .country-flag {
@@ -38,17 +40,15 @@
     border-radius: 7px;
   }
 }
-
+@media (hover: hover) and (pointer: fine) {
+  .country-card:hover {
+    transform: scale(1.05);
+  }
+}
 @media (min-width: 1280px) {
   .country-card {
     border-radius: 15px;
     width: 220px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-
-  .country-card:hover {
-    transform: scale(1.05);
   }
 
   .country-flag {
