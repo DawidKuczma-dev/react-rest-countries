@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import WeatherDetails from './WeatherDetails.jsx';
+import './Weather.css';
 
 const Weather = ({ capital, lat, lon, apiKey }) => {
   const [weather, setWeather] = useState([]);
@@ -29,7 +30,7 @@ const Weather = ({ capital, lat, lon, apiKey }) => {
           src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
           alt={weather.weather[0].description}
         />
-        <div className="temperature__value">{weather.main.temp.toFixed(1)}°C</div>
+        <p className="temperature__value">{weather.main.temp.toFixed(1)}°C</p>
       </div>
       <WeatherDetails weather={weather} />
     </>

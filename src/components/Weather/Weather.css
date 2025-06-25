@@ -1,0 +1,34 @@
+section.weather h3 {
+  width: 100%;
+  text-align: center;
+}
+
+.temperature {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  flex-basis: 50%;
+}
+
+.temperature__value {
+  font-size: 3rem;
+}
+
+.weatherDetails {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-basis: 45%;
+}
+
+.weatherDetails div {
+  flex-basis: 50%;
+}
+
+.weatherDetails div div {
+  display: flex;
+}
+
+.weatherDetails div div span {
+  margin-right: 2px;
+}
