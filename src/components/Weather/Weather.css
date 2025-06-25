@@ -5,9 +5,21 @@ section.weather h3 {
 
 .temperature {
   display: flex;
+  position: relative;
   align-items: center;
   height: 100px;
   flex-basis: 50%;
+}
+
+.temperature__desc {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.temperature__desc::first-letter {
+  text-transform: uppercase;
 }
 
 .temperature__value {
@@ -31,4 +43,23 @@ section.weather h3 {
 
 .weatherDetails div div span {
   margin-right: 2px;
+}
+
+@media (min-width: 1280px) {
+  .temperature {
+    flex-basis: 30%;
+    justify-content: space-around;
+  }
+
+  .temperature__desc {
+    top: -15%;
+  }
+
+  .weatherDetails {
+    flex-basis: 65%;
+    align-items: center;
+  }
+  .weatherDetails div {
+    flex-basis: 25%;
+  }
 }

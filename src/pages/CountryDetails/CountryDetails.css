@@ -1,7 +1,7 @@
 .country-details {
   width: 95vw;
   margin: 0 auto;
-  padding-top: 3rem;
+  padding: 3rem 0 1rem;
 }
 
 .country-details button {
@@ -51,7 +51,7 @@
 .info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(18, auto);
+  grid-template-rows: repeat(16, auto);
   gap: 1rem;
 }
 
@@ -108,7 +108,7 @@
 
 section.weather {
   grid-column: 1 / span 2;
-  grid-row: 15 / span 2;
+  grid-row: 15;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -116,7 +116,7 @@ section.weather {
 
 section.maps {
   grid-column: 1 / span 2;
-  grid-row: 17 / span 1;
+  grid-row: 16;
   flex-direction: row;
   justify-content: space-around;
 }
@@ -176,7 +176,7 @@ section.maps h3 {
   }
   .info {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(10, auto);
+    grid-template-rows: repeat(11, auto);
   }
   .info section {
     border-radius: 15px;
@@ -197,8 +197,12 @@ section.maps h3 {
     grid-column: 3;
     grid-row: 6 / span 4;
   }
-  section.maps {
+  section.weather {
     grid-column: 1 / span 3;
     grid-row: 10;
+  }
+  section.maps {
+    grid-column: 1 / span 3;
+    grid-row: 11;
   }
 }
