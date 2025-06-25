@@ -1,6 +1,8 @@
 import Wind from './details/Wind/Wind.jsx';
 
 const WeatherDetails = ({ weather }) => {
+  if (!weather || !weather.main || !weather.visibility || !weather.wind)
+    return <p>Brak szczegółowych danych o pogodzie</p>;
   return (
     <div className="weatherDetails">
       <Wind speed={weather.wind.speed} deg={weather.wind.deg} />
