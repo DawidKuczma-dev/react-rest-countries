@@ -18,7 +18,7 @@ const WeatherDetails = ({ weather }) => {
           <p>{weather.main.humidity} %</p>
         </div>
       </div>
-      {weather.visibility < 100000 && (
+      {weather.visibility < 10000 && (
         <div className="visibility">
           <h4>Widoczność</h4>
           <div className="visibility__info">
