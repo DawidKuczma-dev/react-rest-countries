@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './CountryDetails.css';
+import Weather from '../../components/Weather/Weather';
 
 const CountryDetails = () => {
   const { cca3 } = useParams();
@@ -45,6 +46,11 @@ const CountryDetails = () => {
     else if (num >= 1000) return formatter.format(num);
     else return num;
   };
+
+  const lat = country.capitalInfo?.latlng?.[0];
+  const lon = country.capitalInfo?.latlng?.[1];
+
+  const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
   return (
     <div className="country-details">
@@ -215,6 +221,14 @@ const CountryDetails = () => {
             <strong>Dzień rozpoczęcia tygodnia: </strong>
             {country.startOfWeek}
           </div>
+        </section>
+        {/* Dane pogodowe */}
+        <section className="weather">
+          {lat && lon ? (
+            <Weather capital={country.capital} lat={lat} lon={lon} apiKey={apiKey} />
+          ) : (
+            <p>Brak danych o pogodzie.</p>
+          )}
         </section>
         {/* Mapy */}
         <section className="maps">
