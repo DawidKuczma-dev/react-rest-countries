@@ -14,6 +14,10 @@
   cursor: pointer;
   transition: background-color 0.2s;
 }
+.filters button:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
 
 .filters button:last-child {
   margin-right: 1rem;

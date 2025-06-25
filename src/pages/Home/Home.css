@@ -56,6 +56,10 @@
   font-size: 1.3rem;
   cursor: pointer;
 }
+.random-button:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
 
 @media (min-width: 532px) {
   .random-button {
