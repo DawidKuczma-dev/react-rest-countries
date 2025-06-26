@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './CountryDetails.css';
-import Weather from '../../components/Weather/Weather';
+import CountryHeader from '../../components/CountryHeader/CountryHeader.jsx';
+import Weather from '../../components/Weather/Weather.jsx';
 
 const CountryDetails = () => {
   const { cca3 } = useParams();
@@ -9,7 +10,6 @@ const CountryDetails = () => {
   const [country, setCountry] = useState(null);
   const [allCountries, setAllCountries] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [loadingArms, setLoadingArms] = useState(true);
 
   useEffect(() => {
     fetch(`https://restcountries.com/v3.1/alpha/${cca3}`)
@@ -57,29 +57,12 @@ const CountryDetails = () => {
       <button onClick={() => navigate(-1)}>
         <i className="fa-solid fa-arrow-left"></i>Wróć
       </button>
-
-      {/* Nazwa i flaga */}
-      <section className="header">
-        <h1>{country.name.common}</h1>
-        {country.name.common !== country.name.official && <h2>{country.name.official}</h2>}
-        <div className="images">
-          <div className="flag">
-            <img src={country.flags.svg} alt={`Flaga ${country.name.common}`} />
-          </div>
-
-          {country.coatOfArms.svg && (
-            <div className="arms">
-              {loadingArms && <p>Ładowanie herbu...</p>}
-              <img
-                src={country.coatOfArms.svg}
-                alt={`Herb ${country.name.common}`}
-                onLoad={() => setLoadingArms(false)}
-                style={loading ? { display: 'none' } : {}}
-              />
-            </div>
-          )}
-        </div>
-      </section>
+      <CountryHeader
+        name={country.name.common}
+        officialName={country.name.official}
+        flag={country.flags.svg}
+        coatOfArms={country.coatOfArms.svg}
+      />
       <div className="info">
         {/* Lokalizacja i geografia */}
         <section className="geography">

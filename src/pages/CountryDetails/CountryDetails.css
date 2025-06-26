@@ -21,33 +21,6 @@
   padding-right: 0.5rem;
 }
 
-.header {
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 3rem;
-}
-.header h2 {
-  font-size: 2.5rem;
-}
-
-.header .images {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 1rem 0;
-}
-
-.flag,
-.arms {
-  display: block;
-  width: 40%;
-  height: auto;
-  align-content: center;
-}
-
 .info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -137,10 +110,6 @@ section.maps h3 {
   .country-details {
     width: 90vw;
   }
-  .flag,
-  .arms {
-    width: 25%;
-  }
   .info section {
     border-radius: 15px;
   }
@@ -163,16 +132,6 @@ section.maps h3 {
   .country-details button {
     top: 1.5rem;
     left: 7.5vw;
-  }
-
-  .header .images {
-    justify-content: space-evenly;
-    padding: 1rem 0;
-    gap: 0;
-  }
-  .flag,
-  .arms {
-    width: 13%;
   }
   .info {
     grid-template-columns: repeat(3, 1fr);
