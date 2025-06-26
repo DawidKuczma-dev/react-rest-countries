@@ -11,12 +11,6 @@ body {
   color: white;
 }
 
-.wrapper {
-  width: 90vw;
-  margin: 0 auto;
-  padding-top: 3rem;
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 81.25%;

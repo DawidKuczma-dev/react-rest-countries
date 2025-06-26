@@ -1,3 +1,9 @@
+.wrapper {
+  width: 90vw;
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+
 .countries {
   display: flex;
   flex-wrap: wrap;
