@@ -24,6 +24,10 @@
   grid-column: 1;
   grid-row: 1 / span 7;
 }
+.population {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+}
 
 @media (min-width: 768px) {
   .info section {

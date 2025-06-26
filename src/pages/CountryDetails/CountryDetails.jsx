@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './CountryDetails.css';
 import CountryHeader from '../../components/CountryHeader/CountryHeader.jsx';
 import CountryGeography from '../../components/CountrySections/CountryGeography.jsx';
+import CountryPopulation from '../../components/CountrySections/CountryPopulation.jsx';
 import Weather from '../../components/Weather/Weather.jsx';
 
 const CountryDetails = () => {
@@ -37,14 +38,9 @@ const CountryDetails = () => {
     });
   };
 
-  const formatter = new Intl.NumberFormat('pl-PL');
-
-  const formatPopulation = (num) => {
-    if (num >= 1000000000) return (num / 1000000000).toFixed(2) + ' mld';
-    else if (num >= 1000000) return (num / 1000000).toFixed(1) + ' mln';
-    else if (num >= 1000) return formatter.format(num);
-    else return num;
-  };
+  const gini = country.gini
+    ? `${Object.values(country.gini)[0]} (${Object.keys(country.gini)[0]})`
+    : null;
 
   const lat = country.capitalInfo?.latlng?.[0];
   const lon = country.capitalInfo?.latlng?.[1];
@@ -72,24 +68,11 @@ const CountryDetails = () => {
           borders={getBorderCountryName}
           timezones={country.timezones}
         />
-        {/* Ludność i społeczeństwo*/}
-        <section className="population">
-          <h3>Ludność</h3>
-          <div>
-            <strong>Liczba ludności: </strong>
-            {formatPopulation(country.population)}
-          </div>
-          <div>
-            <strong>Określenie narodowościowe: </strong>
-            {country.demonyms?.eng?.m}
-          </div>
-          {country.gini && (
-            <div>
-              <strong>Wskaźnik nierówności GINI: </strong>
-              {`${Object.values(country.gini)[0]} (${Object.keys(country.gini)[0]})`}
-            </div>
-          )}
-        </section>
+        <CountryPopulation
+          population={country.population}
+          demonyms={country.demonyms?.eng?.m}
+          gini={gini}
+        />
         {/* Języki */}
         <section className="languages">
           {country.languages ? (
