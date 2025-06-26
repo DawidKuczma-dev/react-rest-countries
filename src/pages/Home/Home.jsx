@@ -66,8 +66,8 @@ const Home = () => {
   });
 
   const handleRandomCountry = () => {
-    const randomIndex = Math.floor(Math.random() * countries.length);
-    const randomCountry = countries[randomIndex];
+    const randomIndex = Math.floor(Math.random() * filteredCountries.length);
+    const randomCountry = filteredCountries[randomIndex];
     navigate(`/country/${randomCountry.cca3}`);
   };
 
