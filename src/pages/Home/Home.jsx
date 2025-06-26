@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import CountryCard from '../../components/CountryCard/CountryCard.jsx';
 import SearchBar from '../../components/SearchBar/SearchBar.jsx';
-import Filters from '../../components/Filters/Filters.jsx';
+import TopBar from '../../components/TopBar/TopBar.jsx';
 
 const Home = () => {
   const [countries, setCountries] = useState([]);
@@ -79,24 +79,15 @@ const Home = () => {
         searchBy={searchBy}
         onToggleSearchBy={handleToggleSearchBy}
       />
-      <div className="top-bar">
-        <h1>Liczba wyników: {filteredCountries.length}</h1>
-        <div className="select-container">
-          <select
-            id="useless-but-needed-id1"
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-          >
-            <option value={'name-asc'}>Alfabetycznie A-Z</option>
-            <option value={'name-desc'}>Alfabetycznie Z-A</option>
-          </select>
-          <i className="fa-solid fa-caret-down"></i>
-        </div>
-        <Filters selectedRegion={selectedRegion} onRegionChange={handleRegionChange} />
-        <button className="random-button" onClick={handleRandomCountry}>
-          🎲 Losowe państwo 🎲
-        </button>
-      </div>
+      <TopBar
+        resultCount={filteredCountries.length}
+        sortOption={sortOption}
+        onSortChange={setSortOption}
+        selectedRegion={selectedRegion}
+        onRegionChange={handleRegionChange}
+        onRandomClick={handleRandomCountry}
+      />
+
       <div className="countries">
         {filteredCountries.map((country) => (
           <CountryCard
