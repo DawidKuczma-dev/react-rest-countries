@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './CountryDetails.css';
 import CountryHeader from '../../components/CountryHeader/CountryHeader.jsx';
+import CountryGeography from '../../components/CountrySections/CountryGeography.jsx';
 import Weather from '../../components/Weather/Weather.jsx';
 
 const CountryDetails = () => {
@@ -36,8 +37,6 @@ const CountryDetails = () => {
     });
   };
 
-  const borders = getBorderCountryName();
-
   const formatter = new Intl.NumberFormat('pl-PL');
 
   const formatPopulation = (num) => {
@@ -64,41 +63,15 @@ const CountryDetails = () => {
         coatOfArms={country.coatOfArms.svg}
       />
       <div className="info">
-        {/* Lokalizacja i geografia */}
-        <section className="geography">
-          <h3>Geografia</h3>
-          <div>
-            <strong>Kontynent: </strong>
-            {country.region}
-            {country.subregion && ` (${country.subregion})`}
-          </div>
-          {country.capital && (
-            <div>
-              <strong>Stolica: </strong>
-              {country.capital.join(', ')}
-            </div>
-          )}
-          <div>
-            <strong>Dostęp do otwartego morza: </strong>
-            {country.landlocked ? 'Nie' : 'Tak'}
-          </div>
-          <div>
-            <strong>Powierzchnia: </strong>
-            {formatter.format(country.area)} km²
-          </div>
-          {country.borders && (
-            <div>
-              <strong>Graniczy z: </strong>
-              {borders.join(', ')}
-            </div>
-          )}
-          <div>
-            <strong>
-              {country.timezones.length === 1 ? 'Strafa czasowa' : 'Strefy czasowe'}:{' '}
-            </strong>
-            {country.timezones?.join(', ')}
-          </div>
-        </section>
+        <CountryGeography
+          continent={country.region}
+          region={country.subregion}
+          capital={country.capital}
+          landlocked={country.landlocked}
+          area={country.area}
+          borders={getBorderCountryName}
+          timezones={country.timezones}
+        />
         {/* Ludność i społeczeństwo*/}
         <section className="population">
           <h3>Ludność</h3>

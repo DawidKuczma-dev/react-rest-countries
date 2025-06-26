@@ -1,0 +1,37 @@
+.info section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1f2535;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  line-height: 1.5;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+}
+
+.info section h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.info section strong {
+  font-size: 1.5rem;
+  padding-right: 0.5rem;
+}
+
+.geography {
+  grid-column: 1;
+  grid-row: 1 / span 7;
+}
+
+@media (min-width: 768px) {
+  .info section {
+    border-radius: 15px;
+  }
+}
+@media (min-width: 1280px) {
+  .info section {
+    border-radius: 15px;
+  }
+}
