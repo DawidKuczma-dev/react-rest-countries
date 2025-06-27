@@ -24,6 +24,14 @@
   grid-column: 1;
   grid-row: 1 / span 7;
 }
+.currencies {
+  grid-column: 1;
+  grid-row: 8 / span 2;
+}
+.currencies ul {
+  list-style-type: none;
+  padding-left: 0;
+}
 .population {
   grid-column: 2;
   grid-row: 1 / span 4;

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './CountryDetails.css';
 import CountryHeader from '../../components/CountryHeader/CountryHeader.jsx';
 import CountryGeography from '../../components/CountrySections/CountryGeography.jsx';
+import CountryCurrencies from '../../components/CountrySections/CountryCurrencies.jsx';
 import CountryPopulation from '../../components/CountrySections/CountryPopulation.jsx';
 import CountryLanguages from '../../components/CountrySections/CountryLanguages.jsx';
 import Weather from '../../components/Weather/Weather.jsx';
@@ -43,6 +44,7 @@ const CountryDetails = () => {
     ? `${Object.values(country.gini)[0]} (${Object.keys(country.gini)[0]})`
     : null;
 
+  const currenciesList = country.currencies ? Object.entries(country.currencies) : [];
   const languageList = country.languages ? Object.values(country.languages) : [];
 
   const lat = country.capitalInfo?.latlng?.[0];
@@ -71,30 +73,13 @@ const CountryDetails = () => {
           borders={getBorderCountryName}
           timezones={country.timezones}
         />
+        <CountryCurrencies currencies={currenciesList} />
         <CountryPopulation
           population={country.population}
           demonyms={country.demonyms?.eng?.m}
           gini={gini}
         />
         <CountryLanguages languages={languageList} />
-        {/* Waluty */}
-        <section className="currencies">
-          {country.currencies ? (
-            <>
-              <h3>{Object.entries(country.currencies).length === 1 ? 'Waluta' : 'Waluty'}</h3>
-              <div>
-                {Object.entries(country.currencies)
-                  .map(([code, currency]) => `${code} - ${currency.name} (${currency.symbol})`)
-                  .join(', ')}
-              </div>
-            </>
-          ) : (
-            <>
-              <h3>Waluta</h3>
-              <div>Brak danych</div>
-            </>
-          )}
-        </section>
         {/* Ruch drogowy */}
         <section className="traffic">
           <h3>Ruch drogowy</h3>
