@@ -6,6 +6,7 @@ import CountryGeography from '../../components/CountrySections/CountryGeography.
 import CountryCurrencies from '../../components/CountrySections/CountryCurrencies.jsx';
 import CountryPopulation from '../../components/CountrySections/CountryPopulation.jsx';
 import CountryLanguages from '../../components/CountrySections/CountryLanguages.jsx';
+import CountryTraffic from '../../components/CountrySections/CountryTraffic.jsx';
 import Weather from '../../components/Weather/Weather.jsx';
 
 const CountryDetails = () => {
@@ -80,17 +81,7 @@ const CountryDetails = () => {
           gini={gini}
         />
         <CountryLanguages languages={languageList} />
-        {/* Ruch drogowy */}
-        <section className="traffic">
-          <h3>Ruch drogowy</h3>
-          <div>
-            <strong>Kod rejestracyjny:</strong> {country.car.signs?.join(', ') || 'Brak danych'}{' '}
-          </div>
-          <div>
-            <strong>Ruch: </strong>
-            {country.car.side === 'right' ? 'prawostronny' : 'lewostronny'}
-          </div>
-        </section>
+        <CountryTraffic signs={country.car.signs} side={country.car.side} />
         {/* Kontakt */}
         <section className="contact">
           <h3>Informacje kontaktowe</h3>

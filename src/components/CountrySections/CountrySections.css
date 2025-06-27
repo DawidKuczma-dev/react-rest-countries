@@ -40,6 +40,10 @@
   grid-column: 2;
   grid-row: 5 / span 2;
 }
+.traffic {
+  grid-column: 2;
+  grid-row: 7 / span 3;
+}
 
 @media (min-width: 768px) {
   .info section {
@@ -53,5 +57,9 @@
   .languages {
     grid-column: 3;
     grid-row: 1 / span 2;
+  }
+  .traffic {
+    grid-column: 3;
+    grid-row: 3 / span 3;
   }
 }
