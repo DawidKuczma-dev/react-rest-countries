@@ -96,14 +96,8 @@ const CountryDetails = () => {
           status={country.status}
           startOfWeek={country.startOfWeek}
         />
-        {/* Dane pogodowe */}
-        <section className="weather">
-          {lat && lon ? (
-            <Weather capital={country.capital} lat={lat} lon={lon} apiKey={apiKey} />
-          ) : (
-            <p>Brak danych o pogodzie.</p>
-          )}
-        </section>
+        <Weather capital={country.capital} lat={lat} lon={lon} apiKey={apiKey} />
+
         {/* Mapy */}
         <section className="maps">
           <h3>Zobacz na: </h3>

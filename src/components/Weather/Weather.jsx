@@ -23,20 +23,26 @@ const Weather = ({ capital, lat, lon, apiKey }) => {
 
   if (loading) return <div>Ładowanie danych pogodowych...</div>;
   return (
-    <>
-      <h3>Pogoda w {capital}</h3>
-      <div className="temperature">
-        <img
-          src={`https://openweathermap.org/img/wn/${weather.weather?.[0]?.icon}@2x.png`}
-          alt={weather.weather?.[0]?.description}
-        />
+    <section className="weather">
+      {lat && lon ? (
+        <>
+          <h3>Pogoda w {capital}</h3>
+          <div className="temperature">
+            <img
+              src={`https://openweathermap.org/img/wn/${weather.weather?.[0]?.icon}@2x.png`}
+              alt={weather.weather?.[0]?.description}
+            />
 
-        <p className="temperature__value">{weather.main?.temp?.toFixed(1)}°C</p>
-        <p className="temperature__desc">{weather.weather?.[0]?.description}</p>
-      </div>
+            <p className="temperature__value">{weather.main?.temp?.toFixed(1)}°C</p>
+            <p className="temperature__desc">{weather.weather?.[0]?.description}</p>
+          </div>
 
-      <WeatherDetails weather={weather} />
-    </>
+          <WeatherDetails weather={weather} />
+        </>
+      ) : (
+        <p>Brak danych o pogodzie.</p>
+      )}
+    </section>
   );
 };
 

@@ -1,3 +1,11 @@
+.info section.weather {
+  grid-column: 1 / span 2;
+  grid-row: 15;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 section.weather h3 {
   width: 100%;
   text-align: center;
@@ -11,6 +19,14 @@ section.weather h3 {
   flex-basis: 50%;
 }
 
+.temperature img {
+  width: 50%;
+}
+
+.temperature__value {
+  font-size: 3rem;
+}
+
 .temperature__desc {
   position: absolute;
   bottom: 0;
@@ -20,10 +36,6 @@ section.weather h3 {
 
 .temperature__desc::first-letter {
   text-transform: uppercase;
-}
-
-.temperature__value {
-  font-size: 3rem;
 }
 
 .weatherDetails {
@@ -45,7 +57,17 @@ section.weather h3 {
   margin-right: 2px;
 }
 
+@media (min-width: 450px) {
+  .temperature img {
+    width: auto;
+  }
+}
+
 @media (min-width: 1280px) {
+  .info section.weather {
+    grid-column: 1 / span 3;
+    grid-row: 10;
+  }
   .temperature {
     flex-basis: 30%;
     justify-content: space-around;

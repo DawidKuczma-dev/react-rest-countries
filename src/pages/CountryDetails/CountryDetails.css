@@ -28,14 +28,6 @@
   gap: 1rem;
 }
 
-.info section.weather {
-  grid-column: 1 / span 2;
-  grid-row: 15;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
 .info section.maps {
   grid-column: 1 / span 2;
   grid-row: 16;
@@ -84,10 +76,6 @@ section.maps h3 {
     grid-template-rows: repeat(11, auto);
   }
 
-  .info section.weather {
-    grid-column: 1 / span 3;
-    grid-row: 10;
-  }
   .info section.maps {
     grid-column: 1 / span 3;
     grid-row: 11;
