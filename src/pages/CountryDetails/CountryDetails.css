@@ -27,10 +27,6 @@
   grid-template-rows: repeat(16, auto);
   gap: 1rem;
 }
-.additional {
-  grid-column: 1;
-  grid-row: 10 / span 5;
-}
 
 .info section.weather {
   grid-column: 1 / span 2;
@@ -86,10 +82,6 @@ section.maps h3 {
   .info {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(11, auto);
-  }
-  .additional {
-    grid-column: 2;
-    grid-row: 5 / span 5;
   }
 
   .info section.weather {

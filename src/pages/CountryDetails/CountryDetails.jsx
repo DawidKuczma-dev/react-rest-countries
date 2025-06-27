@@ -4,6 +4,7 @@ import './CountryDetails.css';
 import CountryHeader from '../../components/CountryHeader/CountryHeader.jsx';
 import CountryGeography from '../../components/CountrySections/CountryGeography.jsx';
 import CountryCurrencies from '../../components/CountrySections/CountryCurrencies.jsx';
+import CountryAdditional from '../../components/CountrySections/CountryAdditional.jsx';
 import CountryPopulation from '../../components/CountrySections/CountryPopulation.jsx';
 import CountryLanguages from '../../components/CountrySections/CountryLanguages.jsx';
 import CountryTraffic from '../../components/CountrySections/CountryTraffic.jsx';
@@ -89,28 +90,12 @@ const CountryDetails = () => {
           tld={country.tld}
           postalCode={country.postalCode.format}
         />
-        {/* Inne */}
-        <section className="additional">
-          <h3>Dodatkowe Informacje</h3>
-          <div>
-            <strong>Członek ONZ: </strong>
-            {country.unMember ? 'Tak' : 'Nie'}
-          </div>
-          <div>
-            <strong>Niepodległy: </strong>
-            {country.independent ? 'Tak' : 'Nie'}
-          </div>
-          <div>
-            <strong>Status: </strong>
-            {country.status === 'officially-assigned'
-              ? 'Oficjalnie uznany kraj'
-              : 'Terytorium nieoficjalne lub specjalne'}
-          </div>
-          <div>
-            <strong>Dzień rozpoczęcia tygodnia: </strong>
-            {country.startOfWeek}
-          </div>
-        </section>
+        <CountryAdditional
+          unMember={country.unMember}
+          independent={country.independent}
+          status={country.status}
+          startOfWeek={country.startOfWeek}
+        />
         {/* Dane pogodowe */}
         <section className="weather">
           {lat && lon ? (
