@@ -44,6 +44,10 @@
   grid-column: 2;
   grid-row: 7 / span 3;
 }
+.contact {
+  grid-column: 2;
+  grid-row: 10 / span 4;
+}
 
 @media (min-width: 768px) {
   .info section {
@@ -61,5 +65,9 @@
   .traffic {
     grid-column: 3;
     grid-row: 3 / span 3;
+  }
+  .contact {
+    grid-column: 3;
+    grid-row: 6 / span 4;
   }
 }

@@ -31,10 +31,6 @@
   grid-column: 1;
   grid-row: 10 / span 5;
 }
-.contact {
-  grid-column: 2;
-  grid-row: 10 / span 4;
-}
 
 .info section.weather {
   grid-column: 1 / span 2;
@@ -96,10 +92,6 @@ section.maps h3 {
     grid-row: 5 / span 5;
   }
 
-  .contact {
-    grid-column: 3;
-    grid-row: 6 / span 4;
-  }
   .info section.weather {
     grid-column: 1 / span 3;
     grid-row: 10;

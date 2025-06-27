@@ -7,6 +7,7 @@ import CountryCurrencies from '../../components/CountrySections/CountryCurrencie
 import CountryPopulation from '../../components/CountrySections/CountryPopulation.jsx';
 import CountryLanguages from '../../components/CountrySections/CountryLanguages.jsx';
 import CountryTraffic from '../../components/CountrySections/CountryTraffic.jsx';
+import CountryContact from '../../components/CountrySections/CountryContact.jsx';
 import Weather from '../../components/Weather/Weather.jsx';
 
 const CountryDetails = () => {
@@ -82,29 +83,12 @@ const CountryDetails = () => {
         />
         <CountryLanguages languages={languageList} />
         <CountryTraffic signs={country.car.signs} side={country.car.side} />
-        {/* Kontakt */}
-        <section className="contact">
-          <h3>Informacje kontaktowe</h3>
-          {country.idd.root && (
-            <div>
-              <strong>Kod telefoniczny: </strong>
-              {country.idd.root}
-              {country.idd.suffixes[0]}
-              {country.idd.suffixes.length > 1 &&
-                ` (wszystkich jest ${country.idd.suffixes.length})`}
-            </div>
-          )}
-          <div>
-            <strong>Domena: </strong>
-            {country.tld?.join(', ')}
-          </div>
-          {country.postalCode.format && (
-            <div>
-              <strong>Format kodu pocztowego: </strong>
-              {country.postalCode.format}
-            </div>
-          )}
-        </section>
+        <CountryContact
+          root={country.idd.root}
+          suffixes={country.idd.suffixes}
+          tld={country.tld}
+          postalCode={country.postalCode.format}
+        />
         {/* Inne */}
         <section className="additional">
           <h3>Dodatkowe Informacje</h3>
