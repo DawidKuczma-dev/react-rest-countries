@@ -4,6 +4,7 @@ import './CountryDetails.css';
 import CountryHeader from '../../components/CountryHeader/CountryHeader.jsx';
 import CountryGeography from '../../components/CountrySections/CountryGeography.jsx';
 import CountryPopulation from '../../components/CountrySections/CountryPopulation.jsx';
+import CountryLanguages from '../../components/CountrySections/CountryLanguages.jsx';
 import Weather from '../../components/Weather/Weather.jsx';
 
 const CountryDetails = () => {
@@ -42,6 +43,8 @@ const CountryDetails = () => {
     ? `${Object.values(country.gini)[0]} (${Object.keys(country.gini)[0]})`
     : null;
 
+  const languageList = country.languages ? Object.values(country.languages) : [];
+
   const lat = country.capitalInfo?.latlng?.[0];
   const lon = country.capitalInfo?.latlng?.[1];
 
@@ -73,20 +76,7 @@ const CountryDetails = () => {
           demonyms={country.demonyms?.eng?.m}
           gini={gini}
         />
-        {/* Języki */}
-        <section className="languages">
-          {country.languages ? (
-            <>
-              <h3>{Object.values(country.languages).length === 1 ? 'Język' : 'Języki'}</h3>
-              <div>{Object.values(country.languages).join(', ')}</div>
-            </>
-          ) : (
-            <>
-              <h3>Język</h3>
-              <div>Brak danych</div>
-            </>
-          )}
-        </section>
+        <CountryLanguages languages={languageList} />
         {/* Waluty */}
         <section className="currencies">
           {country.currencies ? (
