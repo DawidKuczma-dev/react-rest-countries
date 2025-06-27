@@ -52,6 +52,23 @@
   grid-column: 2;
   grid-row: 10 / span 4;
 }
+.info section.maps {
+  grid-column: 1 / span 2;
+  grid-row: 16;
+  flex-direction: row;
+  justify-content: space-around;
+}
+section.maps h3 {
+  margin-bottom: 0;
+}
+
+.maps a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
 
 @media (min-width: 768px) {
   .info section {
@@ -77,5 +94,9 @@
   .contact {
     grid-column: 3;
     grid-row: 6 / span 4;
+  }
+  .info section.maps {
+    grid-column: 1 / span 3;
+    grid-row: 11;
   }
 }

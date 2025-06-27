@@ -10,6 +10,7 @@ import CountryLanguages from '../../components/CountrySections/CountryLanguages.
 import CountryTraffic from '../../components/CountrySections/CountryTraffic.jsx';
 import CountryContact from '../../components/CountrySections/CountryContact.jsx';
 import Weather from '../../components/Weather/Weather.jsx';
+import CountryMaps from '../../components/CountrySections/CountryMaps.jsx';
 
 const CountryDetails = () => {
   const { cca3 } = useParams();
@@ -97,19 +98,10 @@ const CountryDetails = () => {
           startOfWeek={country.startOfWeek}
         />
         <Weather capital={country.capital} lat={lat} lon={lon} apiKey={apiKey} />
-
-        {/* Mapy */}
-        <section className="maps">
-          <h3>Zobacz na: </h3>
-
-          <a href={country.maps.googleMaps} target="_blank" rel="noopener noreferrer">
-            <strong>Google Maps</strong>
-          </a>
-
-          <a href={country.maps.openStreetMaps} target="_blank" rel="noopener noreferrer">
-            <strong>Open Street Map</strong>
-          </a>
-        </section>
+        <CountryMaps
+          googleMaps={country.maps.googleMaps}
+          openStreetMaps={country.maps.openStreetMaps}
+        />
       </div>
     </div>
   );
