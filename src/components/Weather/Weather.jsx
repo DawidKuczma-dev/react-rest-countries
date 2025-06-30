@@ -21,12 +21,24 @@ const Weather = ({ capital, lat, lon, apiKey }) => {
       });
   }, [lat, lon, apiKey]);
 
+  const getLocalTime = (timezone) => {
+    const now = new Date();
+    const utcMilliseconds = now.getTime() + now.getTimezoneOffset() * 60000;
+    const localMilliseconds = utcMilliseconds + timezone * 1000;
+    return new Date(localMilliseconds).toLocaleTimeString('pl-PL', {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  };
+
   if (loading) return <div>Ładowanie danych pogodowych...</div>;
   return (
     <section className="weather">
       {lat && lon ? (
         <>
-          <h3>Pogoda w {capital}</h3>
+          <h3>
+            Pogoda w {capital} <p>czas lokalny: {getLocalTime(weather.timezone)}</p>
+          </h3>
           <div className="temperature">
             <img
               src={`https://openweathermap.org/img/wn/${weather.weather?.[0]?.icon}@2x.png`}

@@ -10,6 +10,10 @@ section.weather h3 {
   width: 100%;
   text-align: center;
 }
+section.weather h3 p {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
 
 .temperature {
   display: flex;
